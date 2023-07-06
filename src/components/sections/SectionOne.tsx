@@ -50,6 +50,29 @@ const letterContainer = {
 	},
 };
 
+const infoContainer = {
+	initial: {},
+	animate: {
+		transition: {
+			delayChildren: 0.5,
+			staggerChildren: 0.3,
+		},
+	},
+};
+
+const infoItem = {
+	initial: {
+		y: 100,
+	},
+	animate: {
+		y: 0,
+		transition: {
+			duration: 1,
+			ease: "easeInOut",
+		},
+	},
+};
+
 const letterAnimation = {
 	initial: {
 		opacity: 0,
@@ -187,41 +210,51 @@ const SectionOne: React.FC = () => {
 									</div>
 								</motion.div>
 
-								<motion.div
-									className="flex items-center space-x-3 xxl:mt-8 overflow-x-hidden"
-									initial={{
-										opacity: 0,
-										x: -100,
-									}}
-									animate={{
-										opacity: 1,
-										x: 0,
-									}}
-									transition={{
-										duration: 0.5,
-										delay: 1,
-									}}
-								>
-									<div className="w-[24px] h-[1.5px] bg-black"></div>
-									<div className="text-lg font-semibold">
-										student@ucsm
-									</div>
-									<div className="flex items-center text-lg font-semibold space-x-4">
-										<div className="">
-											<FontAwesomeIcon icon={faEnvelope} />
+								<motion.div className="overflow-hidden">
+									<motion.div
+										className="flex items-center space-x-3 xxl:mt-8"
+										variants={infoContainer}
+										initial="initial"
+										animate="animate"
+									>
+										<motion.div
+											className="w-[24px] h-[1.5px] bg-black"
+											variants={infoItem}
+										></motion.div>
+										<motion.div
+											className="text-lg font-semibold"
+											variants={infoItem}
+										>
+											student@ucsm
+										</motion.div>
+										<div className="flex items-center text-lg font-semibold space-x-4">
+											<motion.div
+												className=""
+												variants={infoItem}
+											>
+												<FontAwesomeIcon
+													icon={faEnvelope}
+												/>
+											</motion.div>
+											<motion.div variants={infoItem}>
+												<FontAwesomeIcon
+													icon={faLinkedin}
+												/>
+											</motion.div>
 										</div>
-										<div>
-											<FontAwesomeIcon icon={faLinkedin} />
-										</div>
-									</div>
+									</motion.div>
 								</motion.div>
 								<motion.p
 									className="text-2xl font-semibold mt-8"
 									initial={{
 										opacity: 0,
+										clipPath:
+											"polygon(0 0, 100% 0, 100% 0, 0 0)",
 									}}
 									animate={{
 										opacity: 1,
+										clipPath:
+											"polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
 									}}
 									transition={{
 										delay: 1.2,
@@ -230,9 +263,48 @@ const SectionOne: React.FC = () => {
 									}}
 								>
 									Hi! 👋🏻, I&apos;m Khaing Myet Khant (a.k.a
-									Kimmel Kent), <br /> a digital designer
-									and fullstack javascript developer.
-									<br />
+									Kimmel Kent),
+								</motion.p>
+								<motion.p
+									className="text-2xl font-semibold"
+									initial={{
+										opacity: 0,
+										clipPath:
+											"polygon(0 0, 100% 0, 100% 0, 0 0)",
+									}}
+									animate={{
+										opacity: 1,
+										clipPath:
+											"polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+									}}
+									transition={{
+										delay: 1.2,
+										duration: 1,
+										ease: "easeInOut",
+									}}
+								>
+									{" "}
+									a digital designer and fullstack
+									javascript developer.
+								</motion.p>
+								<motion.p
+									className="text-2xl font-semibold"
+									initial={{
+										opacity: 0,
+										clipPath:
+											"polygon(0 0, 100% 0, 100% 0, 0 0)",
+									}}
+									animate={{
+										opacity: 1,
+										clipPath:
+											"polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+									}}
+									transition={{
+										delay: 1.2,
+										duration: 1,
+										ease: "easeInOut",
+									}}
+								>
 									Currently looking for a job and open to
 									new opportunies!
 								</motion.p>

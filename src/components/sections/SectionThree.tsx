@@ -2,6 +2,8 @@ import { useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import SkillsSlideIn from "./components/SkillsSlideIn";
+import ToolsSlideIn from "./components/ToolsSlideIn";
+import Image from "next/image";
 
 const container = {
 	initial: {
@@ -43,7 +45,7 @@ const variants = {
 const SectionThree = () => {
 	return (
 		<section className="min-h-screen">
-			<div className="mx-8 relative h-[100vh] w-full">
+			<div className="mx-8 relative min-h-[100vh] w-full">
 				<div className="relative right-0 top-0 text-[6rem] font-bold">
 					<SkillsSlideIn />
 				</div>
@@ -134,6 +136,67 @@ const SectionThree = () => {
 					</motion.div>
 					<div className="block"></div>
 				</motion.div>
+				<div className="mt-8" />
+				<div className="relative right-0 top-0 text-[6rem] font-bold">
+					<ToolsSlideIn />
+				</div>
+				<div className="relative my-8">
+					<motion.div
+						className="flex justify-between mx-32 space-x-8"
+						variants={listContainer}
+						initial="initial"
+						whileInView="animate"
+					>
+						<motion.div variants={variants}>
+							<Image
+								src="/logos/windows10.svg"
+								alt="windowsLogo"
+								width={100}
+								height={100}
+							/>
+						</motion.div>
+						<motion.div variants={variants}>
+							<Image
+								src="/logos/tux.svg"
+								alt="windowsLogo"
+								width={100}
+								height={100}
+							/>
+						</motion.div>
+						<motion.div variants={variants}>
+							<Image
+								src="/logos/vscode.svg"
+								alt="windowsLogo"
+								width={100}
+								height={100}
+							/>
+						</motion.div>
+						<motion.div variants={variants}>
+							<Image
+								src="/logos/figma.svg"
+								alt="windowsLogo"
+								width={100}
+								height={100}
+							/>
+						</motion.div>
+						<motion.div variants={variants}>
+							<Image
+								src="/logos/postman.svg"
+								alt="windowsLogo"
+								width={100}
+								height={100}
+							/>
+						</motion.div>
+						<motion.div variants={variants}>
+							<Image
+								src="/logos/vercel.svg"
+								alt="windowsLogo"
+								width={100}
+								height={100}
+							/>
+						</motion.div>
+					</motion.div>
+				</div>
 			</div>
 		</section>
 	);

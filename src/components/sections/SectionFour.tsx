@@ -5,13 +5,13 @@ import ProjectsSlideIn from "./components/ProjectsSlideIn";
 const SectionFour = () => {
 	return (
 		<section className="min-h-screen">
+			<ParallaxText baseVelocity={2} big>
+				EAT SLEEP
+			</ParallaxText>
+			<ParallaxText baseVelocity={-2} big>
+				CODE REPEAT
+			</ParallaxText>
 			<div className="mx-8 relative min-h-[100vh] w-full">
-				<ParallaxText baseVelocity={2} big>
-					EAT SLEEP
-				</ParallaxText>
-				<ParallaxText baseVelocity={-2} big>
-					CODE REPEAT
-				</ParallaxText>
 				<div className="mt-12">
 					<div className="font-bold md:text-6xl xxl:text-[6rem]">
 						<ProjectsSlideIn />
