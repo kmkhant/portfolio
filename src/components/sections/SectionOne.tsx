@@ -17,6 +17,7 @@ import {
 	faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { DecodeText } from "../DecodeText/DecodeText";
 
 const MotionImage = motion(Image);
 
@@ -44,7 +45,7 @@ const letterContainer = {
 	initial: {},
 	animate: {
 		transition: {
-			delayChildren: 2.5,
+			delayChildren: 1.5,
 			staggerChildren: 0.1,
 		},
 	},
@@ -172,6 +173,7 @@ const SectionOne: React.FC = () => {
 			className={`relative`}
 			// ref={targetRef}
 		>
+			{" "}
 			<div className="px-8">
 				<div className="flex justify-center pt-8">
 					<div
@@ -352,7 +354,7 @@ const SectionOne: React.FC = () => {
 									<MotionImage
 										src="/profile.jpg"
 										alt="profile"
-										width={500}
+										width={400}
 										height={400}
 										initial={{
 											scale: 1.3,
@@ -364,7 +366,6 @@ const SectionOne: React.FC = () => {
 												"polygon(0 100%, 100% 100%, 100% 0, 0 0)",
 											scale: 1,
 											transition: {
-												delay: 1.8,
 												duration: 2,
 												ease: "easeInOut",
 											},
@@ -372,7 +373,6 @@ const SectionOne: React.FC = () => {
 										whileHover={{
 											scale: 1.3,
 											transition: {
-												delay: 0,
 												duration: 1.5,
 												ease: "easeInOut",
 											},
@@ -388,21 +388,17 @@ const SectionOne: React.FC = () => {
 									className="md:text-6xl xxl:text-[6rem] font-bold mt-0"
 								>
 									<div className="flex justify-end">
-										<motion.div
-											className="flex justify-end items-center space-x-2 md:translate-y-2 xxl:translate-y-10"
-											initial={{
-												opacity: 0,
-											}}
-											animate={{
-												opacity: 1,
-											}}
-											transition={{
-												delay: 4,
-											}}
-										>
-											<div className="w-[24px] h-[2px] bg-black"></div>
+										<motion.div className="flex justify-end items-center space-x-2 md:translate-y-2 xxl:translate-y-10 my-4">
+											<motion.div
+												className="w-[24px] h-[2px] bg-black"
+												initial={{
+													opacity: 0,
+												}}
+												animate={{ opacity: 1 }}
+												transition={{ delay: 1 }}
+											></motion.div>
 											<p className="tracking-wider inline-block text-2xl">
-												FULL STACK DEVELOPMENT
+												<DecodeText text="FULL STACK DEVELOPMENT" />
 											</p>
 										</motion.div>
 									</div>

@@ -7,6 +7,7 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { motion } from "framer-motion";
 import Cursor from "@/components/cursor/Cursor";
 import { useRef, useEffect, useState } from "react";
+import Footer from "@/components/sections/Footer";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -30,7 +31,10 @@ export default function RootLayout({
 			>
 				<div className="background"></div>
 				<TransitionProvider>
-					<SmoothScroll>{children}</SmoothScroll>
+					<SmoothScroll>
+						{children}
+						<Footer />
+					</SmoothScroll>
 				</TransitionProvider>
 				<Cursor />
 			</body>
