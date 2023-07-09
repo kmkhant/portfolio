@@ -1,14 +1,75 @@
 import {
 	faArrowDown,
-	faArrowUpRightDots,
+	faCheck,
 	faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { faTelegram } from "@fortawesome/free-brands-svg-icons";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+const schema = yup
+	.object({
+		name: yup.string().required(),
+		email: yup.string().email().required(),
+		subject: yup.string().required(),
+		message: yup.string().required(),
+	})
+	.required();
+
+const container = {
+	animate: {
+		transition: {
+			staggerChildren: 0.6,
+		},
+	},
+};
+
+const variants = {
+	initial: {
+		opacity: 0,
+	},
+	animate: {
+		opacity: 1,
+		transition: {
+			duration: 0.3,
+			type: "spring",
+			stiffness: 100,
+		},
+	},
+};
+
+interface IRequestForm {
+	name: string;
+	email: string;
+	subject: string;
+	message: string;
+}
 
 const SectionFive: React.FC = () => {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({ resolver: yupResolver(schema) });
+
+	const [isSubmitted, setIsSubmitted] =
+		useState<boolean>(false);
+
+	const onSubmit = async (data: IRequestForm) => {
+		fetch("/api/sendMail", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(data),
+		})
+			.then((data) => data.json())
+			.then((data) => setIsSubmitted(true))
+			.catch((err) => console.log(err));
+	};
+
 	return (
 		<section className="min-h-screen mb-16">
 			<div className="mx-8 relative min-h-screen w-full">
@@ -51,31 +112,60 @@ const SectionFive: React.FC = () => {
 								type="text"
 								placeholder="Name"
 								className="p-2 bg-transparent border-b-2 border-opacity-40 border-black focus:outline-0 placeholder:text-black placeholder:opacity-60 placeholder:font-normal focus:border-opacity-100 transition-all duration-300 ease-in-out"
+								{...register("name")}
 							/>
 							<input
 								type="email"
 								placeholder="Email"
 								className="p-2 bg-transparent border-b-2 border-opacity-40 border-black focus:outline-0 placeholder:text-black placeholder:opacity-60 placeholder:font-normal focus:border-opacity-100 transition-all duration-300 ease-in-out"
+								{...register("email")}
 							/>
 							<input
 								type="text"
 								placeholder="Subject"
 								className="p-2 bg-transparent col-span-2 border-b-2 border-opacity-40 border-black focus:outline-0 placeholder:text-black placeholder:opacity-60 placeholder:font-normal focus:border-opacity-100 transition-all duration-300 ease-in-out"
+								{...register("subject")}
 							/>
 							<textarea
 								className="col-span-2 bg-transparent font-semibold text-black border-b-2 border-opacity-40 focus:border-opacity-100 border-black rounded-md focus:outline-0 focus:ring-0 placeholder:font-normal placeholder:text-black p-2 placeholder:opacity-60 transition-all duration-300 ease-in-out"
 								placeholder="Message"
 								rows={7}
+								{...register("message")}
 							/>
+							<div className="col-span-2 mt-4 flex justify-center">
+								<ul className="list-disc">
+									{errors.name && (
+										<li>{errors.name.message}</li>
+									)}
+									{errors.email && (
+										<li>{errors.email.message}</li>
+									)}
+									{errors.subject && (
+										<li>{errors.subject.message}</li>
+									)}
+									{errors.message && (
+										<li>{errors.message.message}</li>
+									)}
+								</ul>
+							</div>
 							<div className="col-span-2 mt-4">
 								<div className="flex justify-center">
-									<button
-										className="opacity-60 disabled:cursor-not-allowed"
-										disabled
-									>
-										Submit &emsp;
-										<FontAwesomeIcon icon={faPaperPlane} />
-									</button>
+									{isSubmitted ? (
+										<div>
+											Successfully Submitted &emsp;{" "}
+											<FontAwesomeIcon icon={faCheck} />
+										</div>
+									) : (
+										<button
+											className="disabled:cursor-not-allowed"
+											onClick={handleSubmit(onSubmit)}
+										>
+											Submit &emsp;
+											<FontAwesomeIcon
+												icon={faPaperPlane}
+											/>
+										</button>
+									)}
 								</div>
 							</div>
 						</div>
