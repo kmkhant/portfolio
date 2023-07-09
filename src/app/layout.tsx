@@ -13,11 +13,11 @@ export const metadata = {
 	openGraph: {
 		title: "Khaing Myel Khant",
 		description: "A guy who love swimming in code pools",
-		url: "https://portfolio-ofvutobmb-kmkhant.vercel.app/",
+		url: "https://portfolio-plum-alpha-31.vercel.app/",
 		siteName: "Next.js",
 		images: [
 			{
-				url: "https://portfolio-ofvutobmb-kmkhant.vercel.app/og.jpg",
+				url: "https://portfolio-plum-alpha-31.vercel.app/og.jpg",
 				width: 800,
 				height: 600,
 			},
