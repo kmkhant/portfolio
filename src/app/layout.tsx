@@ -1,12 +1,8 @@
-"use client";
-
 import { TransitionProvider } from "@/components/context/TransitionContext";
 import "./globals.scss";
 import { Open_Sans } from "next/font/google";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
-import { motion } from "framer-motion";
 import Cursor from "@/components/cursor/Cursor";
-import { useRef, useEffect, useState } from "react";
 import Footer from "@/components/sections/Footer";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
@@ -21,21 +17,14 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const bodyRef = useRef<HTMLBodyElement>(null);
-
 	return (
 		<html lang="en">
-			<body
-				className={`${openSans.className}`}
-				ref={bodyRef}
-			>
+			<body className={`${openSans.className}`}>
 				<div className="background"></div>
-				<TransitionProvider>
-					<SmoothScroll>
-						{children}
-						<Footer />
-					</SmoothScroll>
-				</TransitionProvider>
+				<SmoothScroll>
+					{children}
+					<Footer />
+				</SmoothScroll>
 				<Cursor />
 			</body>
 		</html>
