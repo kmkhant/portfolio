@@ -37,12 +37,15 @@ export async function POST(
 				{ status: 500 }
 			);
 		} else {
+			console.log("NO ERROR");
 			return NextResponse.json(
 				{ message: "OK" },
 				{ status: 200 }
 			);
 		}
 	});
+
+	console.log("SMOOTH");
 
 	return NextResponse.json({ message: "OK" });
 }
