@@ -66,7 +66,10 @@ const SectionFive: React.FC = () => {
 			body: JSON.stringify(data),
 		})
 			.then((data) => data.json())
-			.then((data) => setIsSubmitted(true))
+			.then((data) => {
+				console.log(data);
+				// setIsSubmitted(true)
+			})
 			.catch((err) => console.log(err));
 	};
 
