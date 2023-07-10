@@ -37,7 +37,7 @@ export async function POST(
 				{ status: 500 }
 			);
 		} else {
-			console.log("NO ERROR");
+			// console.log("NO ERROR");
 			return NextResponse.json(
 				{ message: "OK" },
 				{ status: 200 }
@@ -45,7 +45,8 @@ export async function POST(
 		}
 	});
 
-	console.log("SMOOTH");
+	// console.log("SMOOTH");
+	// smtp not works on vercel
 
 	return NextResponse.json({ message: "OK" });
 }
