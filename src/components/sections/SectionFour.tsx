@@ -7,45 +7,39 @@ import ProjectCard, {
 
 const projects: IProjectCard[] = [
 	{
-		title: "DRIPPPLE",
-		description: `Comple Full-Stack Dribbble clone where user can
+		title: "Drippple",
+		description: `Complete Full-Stack Dribbble clone where user can
 		like, comment and follow each other just like on
-		dribbble. Have features like add shot to users&apos;
-		collection and saving as favourites`,
-		githubLink: "",
+		dribbble. supporting basic features of dribbble related to shots, collections, authenication, users, etc.`,
+		githubLink: "https://github.com/kmkhant/drippple",
 		detailLink: "",
 		tags: `#nextjs #nestjs #axios #redux #headlessui
-	#framermotion #reduxsaga #tailwindcss`,
+	#framermotion #reduxsaga #tailwindcss #postgres #typeorm `,
 	},
 	{
 		title: "Taungthutada Website",
 		description: `Website for a startup helping farmers crafted using NextJS and typescript, integrated with sanity CMS for blog posts, and making animations using framer motion, MUI and Tailwind for UI`,
 		githubLink: "",
 		detailLink: "",
-		tags: `#nextjs #sanity #contextAPI #headlessui
+		demoLink: "https://taungthutada.vercel.app",
+		tags: `#nextjs #sanity #contextapi #headlessui
 	#typescript #nodemailer #mui #tailwindcss`,
 	},
 	{
-		title: "DRIPPPLE",
-		description: `Comple Full-Stack Dribbble clone where user can
-		like, comment and follow each other just like on
-		dribbble. Have features like add shot to users&apos;
-		collection and saving as favourites`,
-		githubLink: "",
+		title: "Elearning Website Frontend Design",
+		description: `Freelance project of converting design to code using vanilla javascript, css and html`,
+		githubLink:
+			"https://github.com/kmkhant/elearningproject",
 		detailLink: "",
-		tags: `#nextjs #nestjs #axios #redux #headlessui
-	#framermotion #reduxsaga`,
+		demoLink: "https://kmkhant.github.io/elearningproject/",
+		tags: `#javascript #html #css #dom`,
 	},
 	{
-		title: "DRIPPPLE",
-		description: `Comple Full-Stack Dribbble clone where user can
-		like, comment and follow each other just like on
-		dribbble. Have features like add shot to users&apos;
-		collection and saving as favourites`,
-		githubLink: "",
+		title: "Mini Social Media App",
+		description: `Full-Stack Social Media App created while I was learning frontend development where users can CRUD their posts, comments, likes. `,
+		githubLink: "https://github.com/kmkhant/SocialMediaApp",
 		detailLink: "",
-		tags: `#nextjs #nestjs #axios #redux #headlessui
-	#framermotion #reduxsaga`,
+		tags: `#vite #redux #reactjs #mongoose #expressjs #nodejs #fileuploading #jwt #typescript`,
 	},
 ];
 
@@ -73,6 +67,7 @@ const SectionFour = () => {
 							githubLink={data.githubLink}
 							detailLink={data.detailLink}
 							tags={data.tags}
+							demoLink={data.demoLink}
 						/>
 					))}
 				</div>

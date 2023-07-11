@@ -15,9 +15,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faLinkedin,
 	faFacebook,
+	faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { DecodeText } from "../DecodeText/DecodeText";
+import Link from "next/link";
 
 const MotionImage = motion(Image);
 
@@ -227,21 +229,39 @@ const SectionOne: React.FC = () => {
 											className="text-lg font-semibold"
 											variants={infoItem}
 										>
-											student@ucsm
+											coding and caffine addict
 										</motion.div>
 										<div className="flex items-center text-lg font-semibold space-x-4">
 											<motion.div
 												className=""
 												variants={infoItem}
 											>
-												<FontAwesomeIcon
-													icon={faEnvelope}
-												/>
+												<Link href="mailto:khaingmyel.dev@gmail.com">
+													<FontAwesomeIcon
+														icon={faEnvelope}
+													/>
+												</Link>
 											</motion.div>
 											<motion.div variants={infoItem}>
-												<FontAwesomeIcon
-													icon={faLinkedin}
-												/>
+												<Link
+													href="https://www.linkedin.com/in/khaing-myel-khant-457b69146/"
+													target="blank"
+												>
+													{" "}
+													<FontAwesomeIcon
+														icon={faLinkedin}
+													/>
+												</Link>
+											</motion.div>
+											<motion.div variants={infoItem}>
+												<Link
+													href="https://github.com/kmkhant"
+													target="blank"
+												>
+													<FontAwesomeIcon
+														icon={faGithub}
+													/>
+												</Link>
 											</motion.div>
 										</div>
 									</motion.div>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export interface IProjectCard {
 	title: string;
@@ -10,6 +11,7 @@ export interface IProjectCard {
 	githubLink: string;
 	detailLink: string;
 	tags: string;
+	demoLink?: string;
 }
 
 const ProjectCard: React.FC<IProjectCard> = ({
@@ -18,14 +20,35 @@ const ProjectCard: React.FC<IProjectCard> = ({
 	githubLink,
 	detailLink,
 	tags,
+	demoLink,
 }) => {
 	return (
 		<div className="px-4 py-4 border-2 border-black rounded-md">
 			<p className="font-bold text-2xl">
-				<span className="underline">{title}</span> &emsp;
-				<Link href="#">
-					<FontAwesomeIcon icon={faGithub} />
-				</Link>
+				<span
+					className={`${
+						demoLink && demoLink.length !== 0
+							? `underline`
+							: ``
+					}`}
+				>
+					{demoLink && demoLink.length !== 0 ? (
+						<Link
+							href="https://taungthutada.vercel.app"
+							target="_blank"
+						>
+							{title}
+						</Link>
+					) : (
+						title
+					)}
+				</span>{" "}
+				&emsp;
+				{githubLink.length !== 0 && (
+					<Link href={githubLink} target="blank">
+						<FontAwesomeIcon icon={faGithub} />
+					</Link>
+				)}
 			</p>
 			<p className="text-lg mt-4">
 				{description}

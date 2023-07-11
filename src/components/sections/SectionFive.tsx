@@ -1,5 +1,6 @@
 import {
 	faArrowDown,
+	faBuildingShield,
 	faCheck,
 	faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
@@ -164,10 +165,11 @@ const SectionFive: React.FC = () => {
 											onClick={handleSubmit(onSubmit)}
 											disabled
 										>
-											Submit Under Construction &emsp;
-											<FontAwesomeIcon
+											Submit is Under Construction &emsp;
+											{/* <FontAwesomeIcon
 												icon={faPaperPlane}
-											/>
+											/> */}
+											<FontAwesomeIcon icon={faBuildingShield} />
 										</button>
 									)}
 								</div>
