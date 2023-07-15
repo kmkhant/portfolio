@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import SplashScreen from "@/components/Loader/SplashScreen";
 import Link from "next/link";
 import SectionOne from "@/components/sections/SectionOne";
 import { useRef } from "react";

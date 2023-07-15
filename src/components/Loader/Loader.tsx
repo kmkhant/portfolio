@@ -1,25 +1,18 @@
 import React from "react";
+import { Triangle } from "react-loader-spinner";
 
-type LoaderProps = {
-	leftBlock: React.RefObject<HTMLDivElement> | null;
-	rightBlock: React.RefObject<HTMLDivElement> | null;
-};
-
-const Loader: React.FC<LoaderProps> = ({
-	leftBlock,
-	rightBlock,
-}) => {
+const Loader: React.FC = () => {
 	return (
-		<main className="relative w-full h-full">
-			<div
-				className="fixed hidden z-[1000] w-[50%] h-[100vh] bg-white"
-				ref={leftBlock}
-			></div>
-			<div
-				className="fixed hidden z-[1000] w-[50%] h-[100vh] bg-white"
-				ref={rightBlock}
-			></div>
-		</main>
+		<div className="flex justify-center items-center min-h-screen">
+			<Triangle
+				height="80"
+				width="80"
+				color="#000000"
+				ariaLabel="triangle-loading"
+				wrapperStyle={{}}
+				visible={true}
+			/>
+		</div>
 	);
 };
 
