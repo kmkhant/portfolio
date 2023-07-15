@@ -6,7 +6,7 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import Cursor from "@/components/cursor/Cursor";
 import Footer from "@/components/sections/Footer";
 import { useEffect, useState } from "react";
-import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 import Loader from "@/components/Loader/Loader";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
@@ -49,6 +49,7 @@ export default function RootLayout({
 						<Cursor />
 					</div>
 				)}
+				<Analytics />
 			</body>
 		</html>
 	);
